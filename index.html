@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      @keyframes slide-in {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .card {
+        animation: slide-in 0.5s ease-out forwards;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>YouTube API</title>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card animated fadeIn">
+          <div class="card-content">
+            <h1 class="card-title center-align">YouTube API</h1>
+            <p class="center-align">
+              Log in with Google to access the YouTube API:
+            </p>
+            <div class="center-align">
+              <a
+                id="log-in"
+                class="waves-effect waves-light btn animated bounceIn"
+                >Log in</a
+              >
+              <a
+                id="log-out"
+                class="waves-effect waves-light btn"
+                style="display: none"
+                >Log out</a
+              >
+            </div>
+            <div id="content" style="display: none" class="animated fadeIn">
+              <form id="channel-form">
+                <div class="input-field">
+                  <input
+                    type="text"
+                    id="channel-value"
+                    placeholder="Enter Channel Name"
+                  />
+                  <label for="channel-value">Channel Name</label>
+                </div>
+                <div class="center-align">
+                  <button
+                    class="btn waves-effect waves-light animated pulse"
+                    type="submit"
+                  >
+                    Get Channel
+                  </button>
+                </div>
+              </form>
+              <div class="card-action animated zoomIn" id="channel-data"></div>
+              <div class="card-action animated zoomIn" id="channel-video"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js" defer></script>
+
+    <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"
+    ></script>
+  </body>
+</html>
